@@ -1,10 +1,11 @@
 import React from 'react';
-import AppContext from '../stores/app.context';
 
-const TotalResult: React.FC = () => {
-  const { sum } = React.useContext(AppContext);
+interface IProps {
+  sum: number;
+}
+const TotalResult: React.FC<IProps> = (props) => {
   return (
-    <h4>Result: {sum.toLocaleString()}</h4>
+    <h4>Result: {props.sum.toLocaleString()}</h4>
   )
 }
 

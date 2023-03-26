@@ -1,25 +1,29 @@
 import React from 'react';
-import AppContext from '../stores/app.context';
 
-const ButtonCalucaltor: React.FC = () => {
-  const {numb1, numb2, setSum, setNumb1, setNumb2} = React.useContext(AppContext);
-
+interface IProps {
+  numb1: number;
+  numb2: number;
+  setNumb1(data: number): void
+  setNumb2(data: number): void
+  setSum(data: number): void;
+}
+const ButtonCalucaltor: React.FC<IProps> = (props) => {
   const handlePlus = () => {
-    setSum(numb1 + numb2);
+    props.setSum(props.numb1 + props.numb2);
   }
   const handleMinus = () => {
-    setSum(numb1 - numb2);
+    props.setSum(props.numb1 - props.numb2);
   }
   const handleMultiply = () => {
-    setSum(numb1 * numb2);
+    props.setSum(props.numb1 * props.numb2);
   }
   const handleDeiice = () => {
-    setSum(numb1 / numb2);
+    props.setSum(props.numb1 / props.numb2);
   }
   const handleReset = () => {
-    setNumb1(0);
-    setNumb2(0);
-    setSum(0);
+    props.setNumb1(0);
+    props.setNumb2(0);
+    props.setSum(0);
   }
   return (
     <div>
